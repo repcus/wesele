@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Ania & Kacper</title>
+</head>
+
+<body onload="run()">
+  <header>
+    <div class="navbar" id="navbar">
+      <div class="container">
+        <div class="nav-links" id="nav-links">
+          <a href="#">Strona główna</a>
+          <a href="./gallery">Galeria</a>
+          <a href="./upload">Dodaj zdjęcie</a>
+          <a href="#contact">Kontakt</a>
+        </div>
+      </div>
+      <div class="burger" id="burger" onclick="boorgir()">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="section">
+      <div class="photo-text">
+        <img id="background" src="./img/1.jpg" style="width:100%; opacity: 0.5;">
+        <div class="photo-centered">
+          <h1>Ania i Kacper</br>28.06.2024</h1>
+          <h2 style="padding-top:10%">Witamy na naszej stronie weselnej!</h2>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <img id="dates-img" src="./img/daty.png" style="width: 100%;">
+    </div>
+    <div class="section">
+      <div class="centered">
+        <h1>ŚLUB</h1>
+        <h3>Zapraszamy na ceremonię zaślubin w Urzędzie Stanu Cywilnego w Strykowie.</h3>
+        <h4>Kościuszki 27, 95-010 Stryków</h4>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2461.8013440961354!2d19.597225357171407!3d51.90108934203477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471bc8bb8d32f0ef%3A0xdae68556c7cb2eff!2sUrz%C4%85d%20Stanu%20Cywilnego%20w%20Strykowie!5e0!3m2!1spl!2spl!4v1710161061947!5m2!1spl!2spl"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+    <div class="section">
+      <div class="centered">
+        <h1>WESELE</h1>
+        <h3>Zapraszamy na przyjęcie weselne, które odbędzie się w hotelu Folwark w Zgierzu.</h3>
+        <h4>Aleksandrowska 63A, 95-100 Zgierz</h4>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2464.5090557413264!2d19.384263077268315!3d51.85166128549514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471bb5cd3cd96051%3A0xf238e2e4a98223f9!2sFOLWARK%20Restauracja%20%26%20Hotel!5e0!3m2!1spl!2spl!4v1710162352316!5m2!1spl!2spl"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+    <div class="section" id="contact">
+      <div class="centered">
+        <h2>Pliki w folderze public:</h2>
+        <ul id="file-list"></ul>
+        <h1>KONTAKT</h1>
+        <div class="card">
+          <h3>Ania</h3>
+          <h4>+48 531 780 411</h4>
+        </div>
+        <div class="card">
+          <h3>Kacper</h3>
+          <h4>+48 696 917 071</h4>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Kacper Kornacki</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
