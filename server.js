@@ -7,10 +7,8 @@ const bodyParser = require('body-parser');
 const app = express();
 const upload = multer({ dest: 'public/img/uploads' });
 
-// Ustawienie silnika widoku EJS
 app.set('view engine', 'ejs');
 
-// Ścieżka do plików statycznych (np. CSS, obrazy)
 app.use(express.static('public'));
 
 // Konfiguracja sesji
@@ -34,11 +32,8 @@ const requireLogin = (req, res, next) => {
   }
 };
 
-// Lista gości (dla celów demonstracyjnych)
-const guests = [
-  { name: 'Jan Kowalski', password: 'haslo1' },
-  { name: 'Anna Nowak', password: 'haslo2' },
-  { name: 'a', password: 'a' }
+const ultraSecretExclusiveList = [
+  { name: 'AniaKacper', password: 'okoń' }
 ];
 
 app.get('/', (req, res) => {
@@ -51,9 +46,11 @@ app.get('/login', (req, res) => {
 
 app.post('/login', (req, res) => {
   const { name, password } = req.body;
-  const guest = guests.find(guest => guest.name === name && guest.password === password);
-  if (guest) {
-    req.session.user = guest;
+  const ultraSecretExclusivePerson = ultraSecretExclusiveList
+    .find(ultraSecretExclusivePerson => ultraSecretExclusivePerson.name === name
+      && ultraSecretExclusivePerson.password === password);
+  if (ultraSecretExclusivePerson) {
+    req.session.user = ultraSecretExclusivePerson;
     res.redirect('/gallery');
   } else {
     res.send('Błędne dane logowania.');
