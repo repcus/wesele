@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
-  <title>Galeria</title>
+  <title>Ania & Kacper - Galeria</title>
 </head>
 
 <body>
@@ -32,9 +32,14 @@
   </header>
   <main>
     <div class="section">
-      <% files.forEach(file=> { %>
-        <img style="width: 20%;" src="/img/uploads/<%= file %>" alt="<%= file %>">
-        <% }); %>
+      <div class="gallery">
+        <% files.forEach(file=> { %>
+          <div class="gallery-item">
+            <img src="/img/uploads/<%= file %>" alt="<%= file %>">
+          </div>
+          <% }); %>
+      </div>
+      <div id="overlay"></div>
     </div>
   </main>
   <script src="script.js"></script>
