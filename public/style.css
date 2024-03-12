@@ -51,6 +51,14 @@ body {
     color: var(--sand);
 }
 
+.navbar .log,
+.navbar .log a {
+    position: absolute;
+    right: 20%;
+    margin: 0;
+    width: max-content;
+}
+
 .nav-links {
     list-style: none;
     display: flex;
