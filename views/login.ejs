@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Ania & Kacper - Logowanie</title>
+</head>
+
+<body>
+    <header>
+        <div class="navbar" id="navbar">
+            <div class="container">
+                <div class="nav-links" id="nav-links">
+                    <a href="./">Strona główna</a>
+                    <a href="./gallery">Galeria</a>
+                    <a href="./upload">Dodaj zdjęcie</a>
+                    <a href="./#contact">Kontakt</a>
+                </div>
+            </div>
+            <div class="burger" id="burger" onclick="boorgir()">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </header>
+    <div class="section">
+        <h1>Logowanie</h1>
+        <form action="/login" method="POST">
+            <label for="name">Imię i nazwisko:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <label for="password">Hasło:</label><br>
+            <input type="password" id="password" name="password"><br><br>
+            <input type="submit" value="Zaloguj">
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2024 Kacper Kornacki</p>
+    </footer>
+</body>
+
+</html>
