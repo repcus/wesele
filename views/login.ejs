@@ -21,6 +21,7 @@
                     <a href="./gallery">Galeria</a>
                     <a href="./upload">Dodaj zdjęcie</a>
                     <a href="./#contact">Kontakt</a>
+                    <a href="/login">Zaloguj się</a>
                 </div>
             </div>
             <div class="burger" id="burger" onclick="boorgir()">
@@ -30,16 +31,19 @@
             </div>
         </div>
     </header>
-    <div class="section">
-        <h1>Logowanie</h1>
-        <form action="/login" method="POST">
-            <label for="name">Imię i nazwisko:</label><br>
-            <input type="text" id="name" name="name"><br>
-            <label for="password">Hasło:</label><br>
-            <input type="password" id="password" name="password"><br><br>
-            <input type="submit" value="Zaloguj">
-        </form>
-    </div>
+    <main>
+        <div class="section">
+            <h1>Logowanie</h1>
+            <form action="/login" method="POST">
+                <label for="name">Identyfikator:</label><br>
+                <input type="text" id="name" name="name"><br>
+                <label for="password">Tajny kod:</label><br>
+                <input type="password" id="password" name="password"><br><br>
+                <input type="submit" value="Zaloguj">
+            </form>
+        </div>
+    </main>
+
     <footer>
         <p>&copy; 2024 Kacper Kornacki</p>
     </footer>

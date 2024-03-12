@@ -21,15 +21,11 @@
           <a href="#">Galeria</a>
           <a href="./upload">Dodaj zdjęcie</a>
           <a href="./#contact">Kontakt</a>
-          <div class="log">
-            <% if (user) { %>
-              <a href="/logout">
-                <%= user.name %>: Wyloguj się
-              </a>
-              <% } else { %>
-                <a href="/login">Zaloguj się</a>
-                <% } %>
-          </div>
+          <% if (user) { %>
+            <a href="/logout">Wyloguj się</a>
+            <% } else { %>
+              <a href="/login">Zaloguj się</a>
+              <% } %>
         </div>
       </div>
       <div class="burger" id="burger" onclick="boorgir()">
@@ -39,6 +35,7 @@
       </div>
     </div>
   </header>
+
   <main>
     <div class="section">
       <div class="gallery">
@@ -51,6 +48,7 @@
       <div id="overlay"></div>
     </div>
   </main>
+
   <script src="script.js"></script>
 
 </body>
