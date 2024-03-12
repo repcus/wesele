@@ -53,7 +53,7 @@ app.post('/login', (req, res) => {
     req.session.user = ultraSecretExclusivePerson;
     res.redirect('/gallery');
   } else {
-    res.send('Błędne dane logowania.');
+    res.send("Błędne dane do logowania!<br><a href=\"./login\">Spróbuj ponownie</a>");
   }
 });
 
