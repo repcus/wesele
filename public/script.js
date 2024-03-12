@@ -25,3 +25,21 @@ burger.addEventListener('click', () => {
   navbar.classList.toggle('active');
   burger.classList.toggle('active');
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const galleryItems = document.querySelectorAll('.gallery-item');
+
+  galleryItems.forEach(item => {
+    item.addEventListener('click', function () {
+      const imgSrc = this.querySelector('img').src;
+      const overlay = document.getElementById('overlay');
+      overlay.innerHTML = `<img src="${imgSrc}" class="overlay-img" alt="Zoomed Image">`;
+      overlay.style.display = 'block';
+
+      overlay.addEventListener('click', function () {
+        overlay.style.display = 'none';
+        overlay.innerHTML = '';
+      });
+    });
+  });
+});
