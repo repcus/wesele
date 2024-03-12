@@ -21,6 +21,15 @@
           <a href="./gallery">Galeria</a>
           <a href="#">Dodaj zdjęcie</a>
           <a href="./#contact">Kontakt</a>
+          <div class="log">
+            <% if (user) { %>
+              <a href="/logout">
+                <%= user.name %>: Wyloguj się
+              </a>
+              <% } else { %>
+                <a href="/login">Zaloguj się</a>
+                <% } %>
+          </div>
         </div>
       </div>
       <div class="burger" id="burger" onclick="boorgir()">
