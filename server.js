@@ -38,8 +38,7 @@ const requireLogin = (req, res, next) => {
 const guests = [
   { name: 'Jan Kowalski', password: 'haslo1' },
   { name: 'Anna Nowak', password: 'haslo2' },
-  { name: 'a', password: 'a' },
-  { name: 'Anna Kowalska', password: 'Aniaa9711!' }
+  { name: 'a', password: 'a' }
 ];
 
 app.get('/', (req, res) => {
