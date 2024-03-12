@@ -36,7 +36,7 @@ app.get('/gallery', (req, res) => {
 
 // Dodaj obsługę przesyłanych plików na nowej trasie /upload
 app.post('/upload', upload.single('photo'), (req, res) => {
-  res.redirect('/upload');
+  res.redirect('/gallery');
 });
 
 const PORT = process.env.PORT || 3000;
