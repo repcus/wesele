@@ -11,17 +11,14 @@ app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
 
-// Konfiguracja sesji
 app.use(session({
   secret: 'secret-key',
   resave: false,
   saveUninitialized: true
 }));
 
-// Parsowanie danych z formularzy
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Middleware sprawdzający, czy użytkownik jest zalogowany
 const requireLogin = (req, res, next) => {
   if (req.session.user) {
     next();
@@ -30,7 +27,6 @@ const requireLogin = (req, res, next) => {
   }
 };
 
-// Middleware sprawdzający, czy użytkownik jest administratorem
 const requireAdmin = (req, res, next) => {
   if (req.session.user && req.session.user.role === 'admin') {
     next();
@@ -39,8 +35,9 @@ const requireAdmin = (req, res, next) => {
   }
 };
 
-const ultraSecretExclusiveList = [
-  { name: 'AniaKacper', password: 'okoń', role: 'admin' },
+const guestsList = [
+  { name: 'Panna', password: 'Młoda', role: 'admin' },
+  { name: 'Pan', password: 'Młody', role: 'admin' },
   { name: 'Beata', password: 'Kowalska', role: 'user' },
   { name: 'Krzysztof', password: 'Kowalski', role: 'user' },
   { name: 'Zenona', password: 'Magielska', role: 'user' },
@@ -95,13 +92,13 @@ const ultraSecretExclusiveList = [
   { name: 'Marcin', password: 'Wojton', role: 'user' },
   { name: 'Gabriela', password: 'Jarecka', role: 'user' },
   { name: 'Adrian', password: 'Kolasiński', role: 'user' },
-  { name: 'Cezary', password: 'Sysiak', role: 'user' },
+  { name: 'Cezary', password: 'Sysiak', role: 'admin' },
   { name: 'Zuzanna', password: 'Kłos', role: 'user' },
   { name: 'Patryk', password: 'Lefik', role: 'user' },
   { name: 'Edyta', password: 'Dróżdż', role: 'user' },
   { name: 'Karolina', password: 'Kalinowska', role: 'user' },
   { name: 'Mateusz', password: 'Strzelczuk', role: 'user' },
-  { name: 'Katarzyna', password: 'Gładkiewicz', role: 'user' },
+  { name: 'Katarzyna', password: 'Gładkiewicz', role: 'admin' },
   { name: 'Kamil', password: 'Mąkoszewski', role: 'user' },
   { name: 'Piotr', password: 'Kowalczyk', role: 'user' },
   { name: 'Jakub', password: 'Rzeźnicki', role: 'user' },
@@ -113,7 +110,6 @@ const ultraSecretExclusiveList = [
   { name: 'Bartosz', password: 'Synowiec', role: 'user' }
 ];
 
-// Struktura do przechowywania informacji o zdjęciach i użytkownikach
 let photoData = [];
 
 app.get('/', (req, res) => {
@@ -126,7 +122,7 @@ app.get('/login', (req, res) => {
 
 app.post('/login', (req, res) => {
   const { name, password } = req.body;
-  const ultraSecretExclusivePerson = ultraSecretExclusiveList
+  const ultraSecretExclusivePerson = guestsList
     .find(ultraSecretExclusivePerson => ultraSecretExclusivePerson.name === name
       && ultraSecretExclusivePerson.password === password);
   if (ultraSecretExclusivePerson) {
@@ -157,7 +153,6 @@ app.get('/gallery', requireLogin, (req, res) => {
       console.error('Błąd odczytu plików:', err);
       return res.status(500).send('Błąd odczytu plików');
     }
-    // Przekazanie listy plików do widoku gallery z dodatkowymi danymi o zdjęciach
 
     const filesWithUser = files.map(file => {
       const photoInfo = photoData.find(photo => photo.filename === file);
@@ -167,14 +162,12 @@ app.get('/gallery', requireLogin, (req, res) => {
   });
 });
 
-// Dodaj obsługę przesyłanych plików na nowej trasie /upload
 app.post('/upload', requireLogin, upload.single('photo'), (req, res) => {
-  // Dodajemy informacje o zdjęciu i użytkowniku do photoData
-  photoData.push({ filename: req.file.filename, user: req.session.user.name });
+  let photoName = req.session.user.name + ' ' + req.session.user.password;
+  photoData.push({ filename: req.file.filename, user: photoName });
   res.redirect('/gallery');
 });
 
-// Trasa do usuwania zdjęć, dostępna tylko dla administratora
 app.post('/delete', requireLogin, requireAdmin, (req, res) => {
   const { filename } = req.body;
   const filePath = path.join(__dirname, 'public/img/uploads', filename);
@@ -184,7 +177,6 @@ app.post('/delete', requireLogin, requireAdmin, (req, res) => {
       console.error('Błąd usuwania pliku:', err);
       return res.status(500).send('Błąd usuwania pliku');
     }
-    // Usuwamy informacje o zdjęciu z photoData
     photoData = photoData.filter(photo => photo.filename !== filename);
     res.redirect('/gallery');
   });
