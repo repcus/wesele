@@ -40,14 +40,26 @@
     <div class="section">
       <h1>Podczas wesela możesz dodać zdjęcie, które wyświetli się w galerii!</h1>
       <h2>Prześlij zdjęcie:</h2>
-      <form action="/upload" method="post" enctype="multipart/form-data">
+      <form id="uploadForm" method="post" enctype="multipart/form-data">
         <input type="file" name="photo" accept="image/*">
-        <button type="submit">Wyślij</button>
+        <button class="delete-button" type="submit">Wyślij</button>
       </form>
     </div>
   </main>
 
-  <script src="script.js"></script>
+  <script src="./script.js"></script>
+  <script>
+    let submit = document.getElementById('uploadForm');
+    console.log(submit)
+    submit.addEventListener("submit", (event) => {
+      fs.writeFile('./img/linkmap.txt', data, { flag: 'wx' }, function (err) {
+        if (err) throw err;
+        console.log("It's saved!");
+      });
+      alert('dsfsdfdfsdfs')
+    });
+
+  </script>
 
 </body>
 
