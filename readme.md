@@ -150,7 +150,7 @@ Multer to middleware dla frameworka Express, które ułatwia obsługę przesyła
 Express-session to middleware do zarządzania sesjami w aplikacjach Express. Umożliwia przechowywanie informacji o użytkownikach między różnymi żądaniami HTTP, co jest niezbędne do implementacji funkcji takich jak logowanie, koszyki zakupowe czy personalizowane ustawienia użytkownika. W kontekście omawianej aplikacji, odpowiada za logowanie oraz sprawdzanie uprawnień użytkownika.
 
 #### Body-parser
-Body-parser to middleware dla Express, które ułatwia parsowanie treści żądań HTTP, zwłaszcza danych przesyłanych w formularzach i JSON. Umożliwia dostęp do danych z formularza poprzez obiekt `r	eq.body`, co upraszcza ich dalsze przetwarzanie.
+Body-parser to middleware dla Express, które ułatwia parsowanie treści żądań HTTP, zwłaszcza danych przesyłanych w formularzach i JSON. Umożliwia dostęp do danych z formularza poprzez obiekt `req.body`, co upraszcza ich dalsze przetwarzanie.
 
 #### File System (fs)
 Moduł File System w Node.js zapewnia funkcje do pracy z systemem plików, takie jak odczytywanie, zapisywanie, usuwanie plików oraz przeglądanie katalogów. W projekcie jest używany do zarządzania przesyłanymi obrazami.
