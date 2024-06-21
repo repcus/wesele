@@ -41,16 +41,21 @@
       <div class="gallery">
         <% files.forEach(file=> { %>
           <div class="gallery-item">
-            <img src="/img/uploads/<%= file %>" alt="<%= file %>">
+            <img src="/img/uploads/<%= file.filename %>" alt="<%= file.filename %>">
+            <p>Autor: <%= file.user %>
+            </p>
+            <% if (user && user.role==='admin' ) { %>
+              <form action="/delete" method="post">
+                <input type="hidden" name="filename" value="<%= file.filename %>">
+                <button type="submit" class="delete-button">Usuń</button>
+              </form>
+              <% } %>
           </div>
-          <% }); %>
+          <% }) %>
       </div>
-      <div id="overlay"></div>
     </div>
   </main>
-
-  <script src="script.js"></script>
-
+  <script src="./script.js"></script>
 </body>
 
 </html>
