@@ -258,7 +258,6 @@ iframe {
     visibility: hidden;
 }
 
-/* Stylizacja przycisku "Usuń" */
 .delete-button {
     background-color: var(--sand);
     color: black;
@@ -277,7 +276,7 @@ iframe {
     color: var(--sand);
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 900px) {
     .nav-links {
         display: none;
     }
@@ -317,5 +316,17 @@ iframe {
 
     .photo-centered {
         font-size: 0.7em;
+    }
+
+    .login {
+        width: 100%;
+    }
+
+    .footer {
+        width: 100%;
+    }
+
+    .navbar a:last-child {
+        position: static;
     }
 }
