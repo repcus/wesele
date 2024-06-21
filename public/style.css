@@ -1,3 +1,4 @@
+/* Zmienne kolorów */
 :root {
     --blue-dark: #6F9CA6;
     --blue-light: #8FBABF;
@@ -5,7 +6,6 @@
     --earth: #BF9780;
     --neutral: #efede7;
 }
-
 
 body {
     font-family: "Playfair Display", serif;
@@ -59,7 +59,6 @@ body {
     background-color: var(--blue-dark);
     color: var(--sand);
 }
-
 
 .nav-links {
     list-style: none;
@@ -187,6 +186,7 @@ iframe {
     overflow: hidden;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 .gallery-item img {
@@ -196,6 +196,12 @@ iframe {
     object-fit: scale-down;
     max-height: 200px;
     transition: transform 0.2s ease-in-out;
+}
+
+.gallery-item p {
+    text-align: center;
+    font-size: 14px;
+    color: var(--earth);
 }
 
 #overlay {
@@ -250,6 +256,25 @@ iframe {
 .invisible {
     display: none;
     visibility: hidden;
+}
+
+/* Stylizacja przycisku "Usuń" */
+.delete-button {
+    background-color: var(--sand);
+    color: black;
+    font-family: "Playfair Display", serif;
+    font-size: medium;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px auto;
+    display: block;
+}
+
+.delete-button:hover {
+    background-color: var(--blue-dark);
+    color: var(--sand);
 }
 
 @media screen and (max-width: 768px) {
