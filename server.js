@@ -53,11 +53,11 @@ app.get('/login', (req, res) => {
 
 app.post('/login', (req, res) => {
   const { name, password } = req.body;
-  const ultraSecretExclusivePerson = guestsList
-    .find(ultraSecretExclusivePerson => ultraSecretExclusivePerson.name === name
-      && ultraSecretExclusivePerson.password === password);
-  if (ultraSecretExclusivePerson) {
-    req.session.user = ultraSecretExclusivePerson;
+  const person = guestsList
+    .find(person => person.name === name
+      && person.password === password);
+  if (person) {
+    req.session.user = person;
     res.redirect('/gallery');
   } else {
     res.send("Błędne dane do logowania!<br><a href=\"./login\">Spróbuj ponownie</a>");
